@@ -8,7 +8,7 @@ function PostList() {
 
     const fetchPost = async()=>{
         try {
-            const res = await axios.get("http://localhost:4040/posts");
+            const res = await axios.get("http://localhost:4042/posts");
             console.log(res.data,"here is res")
             setPost(res.data)
         } catch (error) {
@@ -32,7 +32,7 @@ const handleCommentCreated = () => {
           <h6>{post.blogContent}</h6>
           <hr className="my-4 border-gray-300" />
           <h6 className="text-lg font-semibold text-gray-700 mb-4">Comments</h6>
-          <CommentLists postId={post.id} />
+          <CommentLists comments={post.comments} />
           <CommentCreate postId={post.id} onCommentCreated={handleCommentCreated} />
         </div>
       </div>
